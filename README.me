@@ -1,0 +1,10 @@
+To run this project, you need to make sure to have Antlr4 downloaded.
+To compile your antlr parser and lexer you must run 
+
+antlr4 -Dlanguage=Python3 PythonParser.g4 -o gen
+
+You must then run 
+
+Python3 .\parser.py input       To test parser, it will print out the parse tree output
+
+
