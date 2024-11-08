@@ -17,6 +17,15 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonParserParser#Assignment.
+    def enterAssignment(self, ctx:PythonParserParser.AssignmentContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#Assignment.
+    def exitAssignment(self, ctx:PythonParserParser.AssignmentContext):
+        pass
+
+
     # Enter a parse tree produced by PythonParserParser#Divide.
     def enterDivide(self, ctx:PythonParserParser.DivideContext):
         pass

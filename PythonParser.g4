@@ -9,7 +9,9 @@ expr
     | '(' expr ')'           # Parentheses
     | NUMBER                 # Number
     | expr '%' expr          # Mod
+    | expr ASSIGN_OP  expr   # Assignment
     ;
 
+ASSIGN_OP : '=' | '+=' | '-=' | '*=' | '/=';
 NUMBER : [0-9]+ ('.' [0-9]+)? ;
 WS : [ \t\r\n]+ -> skip ;
