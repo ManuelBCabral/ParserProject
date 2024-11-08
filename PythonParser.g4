@@ -8,6 +8,7 @@ expr
     | expr '-' expr          # Subtract
     | '(' expr ')'           # Parentheses
     | NUMBER                 # Number
+    | expr '%' expr          # Mod
     ;
 
 NUMBER : [0-9]+ ('.' [0-9]+)? ;

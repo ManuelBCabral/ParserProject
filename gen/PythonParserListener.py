@@ -26,6 +26,15 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonParserParser#Mod.
+    def enterMod(self, ctx:PythonParserParser.ModContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#Mod.
+    def exitMod(self, ctx:PythonParserParser.ModContext):
+        pass
+
+
     # Enter a parse tree produced by PythonParserParser#Number.
     def enterNumber(self, ctx:PythonParserParser.NumberContext):
         pass
