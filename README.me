@@ -8,6 +8,13 @@ Our group consists of 5 members:
   Joseph Mun
 
 To run this project, you need to make sure to have Antlr4 downloaded.
+
+If using python virtual enviorement:
+- python or python3 -m venv venv 
+- source venv/bin/activate (on mac) or venv\Scripts\activate (on windows)
+- pip(/3) install -r requirements.txt
+
+
 To compile your antlr parser and lexer you must run 
 
 antlr4 -Dlanguage=Python3 PythonParser.g4 -o gen
@@ -15,5 +22,7 @@ antlr4 -Dlanguage=Python3 PythonParser.g4 -o gen
 You must then run 
 
 Python3 .\parser.py input       To test parser, it will print out the parse tree output
+
+
 
 

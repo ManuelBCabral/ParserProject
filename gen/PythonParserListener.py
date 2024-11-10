@@ -8,84 +8,39 @@ else:
 # This class defines a complete listener for a parse tree produced by PythonParserParser.
 class PythonParserListener(ParseTreeListener):
 
-    # Enter a parse tree produced by PythonParserParser#Add.
-    def enterAdd(self, ctx:PythonParserParser.AddContext):
+    # Enter a parse tree produced by PythonParserParser#start.
+    def enterStart(self, ctx:PythonParserParser.StartContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#Add.
-    def exitAdd(self, ctx:PythonParserParser.AddContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#Assignment.
-    def enterAssignment(self, ctx:PythonParserParser.AssignmentContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#Assignment.
-    def exitAssignment(self, ctx:PythonParserParser.AssignmentContext):
+    # Exit a parse tree produced by PythonParserParser#start.
+    def exitStart(self, ctx:PythonParserParser.StartContext):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#Divide.
-    def enterDivide(self, ctx:PythonParserParser.DivideContext):
+    # Enter a parse tree produced by PythonParserParser#assign.
+    def enterAssign(self, ctx:PythonParserParser.AssignContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#Divide.
-    def exitDivide(self, ctx:PythonParserParser.DivideContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#Mod.
-    def enterMod(self, ctx:PythonParserParser.ModContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#Mod.
-    def exitMod(self, ctx:PythonParserParser.ModContext):
+    # Exit a parse tree produced by PythonParserParser#assign.
+    def exitAssign(self, ctx:PythonParserParser.AssignContext):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#Number.
-    def enterNumber(self, ctx:PythonParserParser.NumberContext):
+    # Enter a parse tree produced by PythonParserParser#expr.
+    def enterExpr(self, ctx:PythonParserParser.ExprContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#Number.
-    def exitNumber(self, ctx:PythonParserParser.NumberContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#Multiply.
-    def enterMultiply(self, ctx:PythonParserParser.MultiplyContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#Multiply.
-    def exitMultiply(self, ctx:PythonParserParser.MultiplyContext):
+    # Exit a parse tree produced by PythonParserParser#expr.
+    def exitExpr(self, ctx:PythonParserParser.ExprContext):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#Subtract.
-    def enterSubtract(self, ctx:PythonParserParser.SubtractContext):
+    # Enter a parse tree produced by PythonParserParser#arrayLiteral.
+    def enterArrayLiteral(self, ctx:PythonParserParser.ArrayLiteralContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#Subtract.
-    def exitSubtract(self, ctx:PythonParserParser.SubtractContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#Parentheses.
-    def enterParentheses(self, ctx:PythonParserParser.ParenthesesContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#Parentheses.
-    def exitParentheses(self, ctx:PythonParserParser.ParenthesesContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#Power.
-    def enterPower(self, ctx:PythonParserParser.PowerContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#Power.
-    def exitPower(self, ctx:PythonParserParser.PowerContext):
+    # Exit a parse tree produced by PythonParserParser#arrayLiteral.
+    def exitArrayLiteral(self, ctx:PythonParserParser.ArrayLiteralContext):
         pass
 
 
