@@ -5,7 +5,7 @@ start:
 	| expr; // assignment which is x = expression or simple without assignment
 
 assign: ID ASSIGN_OP (expr | 'True' | 'False');
-// seperate assignment rule for var = expression or bool value
+// seperate assignment rule for var operator expression or bool value
 
 expr:
 	expr ASSIGN_OP expr
