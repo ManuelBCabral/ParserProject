@@ -1,33 +1,37 @@
 grammar PythonParser;
 
-start:
-	assign
-	| expr; // assignment which is x = expression or simple without assignment
+// Start rule to distinguish assignments and expressions
+start: assign | expr;
 
-assign: ID ASSIGN_OP (expr | 'True' | 'False');
-// seperate assignment rule for var operator expression or bool value
+// Rule for assignments with specific options
+assign: ID ASSIGN_OP (expr | arrayLiteral | TRUE | FALSE);
 
-expr:
-	expr ASSIGN_OP expr
-	| expr ('*' | '/' | '%' | '+' | '-') expr //changed to handle all of the arethmic in one case
-	| '(' expr ')'
-	| (
-		NUMBER
-		| STRING
-	) //Num or String case for simple or assign case
-	| ID
-	| arrayLiteral; //recursively calling this will build a list 
+// Rule for expressions with arithmetic and grouping
+expr: expr ('*' | '/' | '%' | '+' | '-') expr  // Arithmetic operations
+    | '(' expr ')'                             // Grouping with parentheses
+    | NUMBER                                   // Number literal
+    | STRING                                   // String literal
+    | ID                                       // Variable identifier
+    | arrayLiteral;                            // Array literal
 
+// Array literal with recursive expressions
 arrayLiteral: '[' expr (',' expr)* ']';
-//Allows for one or more and expr can be recursive into NUM and String into list seperated by commas
 
-ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/='; //Assign operators
+// Assignment operators
+ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=';
 
-ID:
-	[a-zA-Z_][a-zA-Z_0-9]*; //Define ID must start with a letter or underscore 
+// Identifiers
+ID: [a-zA-Z_][a-zA-Z_0-9]*;
 
-STRING: '\'' [a-zA-Z_0-9]+ '\''; //Define String
+// String literals
+STRING: '\'' [a-zA-Z_0-9]+ '\'' | '"' [a-zA-Z_0-9]+ '"';
 
-NUMBER: [0-9]+ ('.' [0-9]+)*; //Define Number
+// Number literals
+NUMBER: [0-9]+ ('.' [0-9]+)?;
 
-WS: [ \t\r\n]+ -> skip; //Define whitespace to skip
+// Boolean literals
+TRUE: 'True';
+FALSE: 'False';
+
+// Whitespace
+WS: [ \t\r\n]+ -> skip;
