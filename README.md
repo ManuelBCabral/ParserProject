@@ -22,3 +22,10 @@ antlr4 -Dlanguage=Python3 PythonParser.g4 -o gen //to compile
 You must then run
 
 Python3 .\parser.py "input" // This is to test the input and tree of parser, it will print out the parse tree output
+
+To test the parser with sample expressions:
+
+1. **Prepare `expressions.txt`**: Ensure `expressions.txt` contains the expressions you want to test, with each expression on a new line.
+
+2. Run test_parser.py: Use the following command to parse each expression in expressions.txt and print the corresponding parse tree
+python3 test_parser.py expressions.txt
