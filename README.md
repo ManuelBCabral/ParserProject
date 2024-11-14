@@ -13,7 +13,7 @@ If you are using python virtual enviorement:
 
 - python or python3 -m venv venv
 - source venv/bin/activate (on mac) or venv\Scripts\activate (on windows) // Activates virtual enviorement
-- pip(/3) install -r requirements.txt // or maually install the antlr4 runtime on windows
+- pip(/3) install -r requirements.txt // or maually install the antlr4 runtime on windows / mac
 
 To compile your antlr parser and lexer you must run
 
@@ -28,4 +28,4 @@ To test the parser with sample expressions:
 1. **Prepare `expressions.txt`**: Ensure `expressions.txt` contains the expressions you want to test, with each expression on a new line.
 
 2. Run test_parser.py: Use the following command to parse each expression in expressions.txt and print the corresponding parse tree
-python3 test_parser.py expressions.txt
+   python3 test_parser.py expressions.txt

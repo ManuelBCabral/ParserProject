@@ -1,7 +1,7 @@
 grammar PythonParser;
 
 // Start rule to handle multiple statements, each optionally ending with a semicolon
-start: (statement ';'?)* EOF;
+start: (statement COLON?)* EOF;
 
 // Rule for statements, which can be an assignment or an expression or if statement
 statement: assign | expr | ifStatement;
@@ -10,31 +10,28 @@ statement: assign | expr | ifStatement;
 assign: ID ASSIGN_OP (expr | arrayLiteral | TRUE | FALSE);
 
 //Rule for if/elif/else statements
-ifStatement
-    :'if' conditionBlock ':' block
-    ('elif' conditionBlock ':' block)*
-    ('else' ':' block)?
-    ;
+ifStatement:
+	IF conditionBlock block (ELIF conditionBlock block)* (
+		ELSE COLON* block
+	)?;
 
 //Condition block for if/elif statements
-conditionBlock: expr ;
+conditionBlock: expr COLON;
 
-
-//Code block, allows multiple statements within braces
-//block: statement | '{' (statement ';'?)* '}';
-block: '{' statement* '}' | statement+ ;
+//Code block, allows multiple statements within braces block: statement | '{' (statement ';'?)* '}';
+block: '{' statement* '}' | statement+;
 
 // Rule for arithmetic expressions and grouping
-expr: expr ('*' | '/' | '%' | '+' | '-') expr    // Arithmetic operations
-    | expr ('<' | '<=' | '>' | '>=' | '==' | '!=') expr     // Comparison operations
-    | expr ('and' | 'or') expr                   // Logical and/or operations
-    | 'not' expr                                 // Logical not
-    | '(' expr ')'                               // Grouping with parentheses
-    | NUMBER                                     // Number literal (including decimals)
-    | STRING                                     // String literal
-    | ID                                         // Variable identifier
-    | arrayLiteral                               // Array literal
-    ;
+expr:
+	expr ('*' | '/' | '%' | '+' | '-') expr // Arithmetic operations
+	| expr ('<' | '<=' | '>' | '>=' | '==' | '!=') expr // Comparison operations
+	| expr (AND | OR) expr // Logical and/or operations
+	| NOT expr // Logical not
+	| '(' expr ')' // Grouping with parentheses
+	| NUMBER // Number literal (including decimals)
+	| STRING // String literal
+	| ID // Variable identifier
+	| arrayLiteral; // Array literal
 
 // Array literals with recursive expressions
 arrayLiteral: '[' expr (',' expr)* ']';
@@ -62,6 +59,7 @@ ELSE: 'else';
 AND: 'and';
 OR: 'or';
 NOT: 'not';
+COLON: ':';
 
 // Whitespace (ignored)
 WS: [ \t\r\n]+ -> skip;
