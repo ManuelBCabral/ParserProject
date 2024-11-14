@@ -11,9 +11,9 @@ assign: ID ASSIGN_OP (expr | arrayLiteral | TRUE | FALSE);
 
 //Rule for if/elif/else statements
 ifStatement:
-	IF conditionBlock block COLON (
-		ELIF conditionBlock COLON block
-	)* (ELSE COLON* block)?;
+	IF expr COLON (block | statement) (
+		ELIF expr COLON (block | statement)
+	)* (ELSE COLON (block | statement))*;
 
 //Condition block for if/elif statements
 conditionBlock: expr;
