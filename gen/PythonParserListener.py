@@ -1,4 +1,4 @@
-# Generated from PythonParser.g4 by ANTLR 4.13.2
+# Generated from PythonParser.g4 by ANTLR 4.13.0
 from antlr4 import *
 if "." in __name__:
     from .PythonParserParser import PythonParserParser
@@ -26,12 +26,30 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#assign.
-    def enterAssign(self, ctx:PythonParserParser.AssignContext):
+    # Enter a parse tree produced by PythonParserParser#assignment.
+    def enterAssignment(self, ctx:PythonParserParser.AssignmentContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#assign.
-    def exitAssign(self, ctx:PythonParserParser.AssignContext):
+    # Exit a parse tree produced by PythonParserParser#assignment.
+    def exitAssignment(self, ctx:PythonParserParser.AssignmentContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonParserParser#arithmatic.
+    def enterArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#arithmatic.
+    def exitArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonParserParser#condition.
+    def enterCondition(self, ctx:PythonParserParser.ConditionContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#condition.
+    def exitCondition(self, ctx:PythonParserParser.ConditionContext):
         pass
 
 
@@ -44,15 +62,6 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#conditionBlock.
-    def enterConditionBlock(self, ctx:PythonParserParser.ConditionBlockContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#conditionBlock.
-    def exitConditionBlock(self, ctx:PythonParserParser.ConditionBlockContext):
-        pass
-
-
     # Enter a parse tree produced by PythonParserParser#block.
     def enterBlock(self, ctx:PythonParserParser.BlockContext):
         pass
@@ -62,21 +71,21 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonParserParser#array.
+    def enterArray(self, ctx:PythonParserParser.ArrayContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#array.
+    def exitArray(self, ctx:PythonParserParser.ArrayContext):
+        pass
+
+
     # Enter a parse tree produced by PythonParserParser#expr.
     def enterExpr(self, ctx:PythonParserParser.ExprContext):
         pass
 
     # Exit a parse tree produced by PythonParserParser#expr.
     def exitExpr(self, ctx:PythonParserParser.ExprContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#arrayLiteral.
-    def enterArrayLiteral(self, ctx:PythonParserParser.ArrayLiteralContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#arrayLiteral.
-    def exitArrayLiteral(self, ctx:PythonParserParser.ArrayLiteralContext):
         pass
 
 

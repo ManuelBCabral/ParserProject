@@ -1,65 +1,48 @@
 grammar PythonParser;
 
-// Start rule to handle multiple statements, each optionally ending with a semicolon
-start: (statement COLON?)* EOF;
+// Start rule to handle multiple statements
+start: (statement)* EOF;
 
-// Rule for statements, which can be an assignment or an expression or if statement
-statement: assign | expr | ifStatement;
+statement: ifStatement | assignment;
 
-// Rule for assignments
-assign: ID ASSIGN_OP (expr | arrayLiteral | TRUE | FALSE);
+assignment: assignment ASSIGN_OP (assignment | arithmatic)
+	| BOOL
+	| VAR
+	| NUM
+	| CHAR
+	| STRING
+	| array;
 
-//Rule for if/elif/else statements
-ifStatement:
-	IF expr COLON (block | statement) (
-		ELIF expr COLON (block | statement)
-	)* (ELSE COLON (block | statement))*;
+arithmatic: arithmatic ARITH_OP arithmatic
+	| VAR
+	| NUM;
 
-//Condition block for if/elif statements
-conditionBlock: expr;
+condition: condition ('and' | 'or') condition
+	| condition COND_OP condition
+	| 'not' condition
+	| '(' condition ')'
+	| VAR
+	| NUM
+	| BOOL;
 
-//Code block, allows multiple statements within braces block: statement | '{' (statement ';'?)* '}';
-block: '{' statement* '}' | statement+;
+ifStatement: 'if' '('? condition ')'? ':' (' ')* block+ ('elif' '('? condition ')'? ':' block+)* ('else' ':' block+)?;
 
-// Rule for arithmetic expressions and grouping
-expr:
-	expr ('*' | '/' | '%' | '+' | '-') expr // Arithmetic operations
-	| expr ('<' | '<=' | '>' | '>=' | '==' | '!=') expr // Comparison operations
-	| expr (AND | OR) expr // Logical and/or operations
-	| NOT expr // Logical not
-	| '(' expr ')' // Grouping with parentheses
-	| NUMBER // Number literal (including decimals)
-	| STRING // String literal
-	| ID // Variable identifier
-	| arrayLiteral; // Array literal
+block: TAB (statement)+;
 
-// Array literals with recursive expressions
-arrayLiteral: '[' expr (',' expr)* ']';
+array: '[' (expr (',' expr)*)? ']';
 
-// Assignment operators
-ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=';
+expr: (CHAR | NUM | STRING);
 
-// Identifiers
-ID: [a-zA-Z_][a-zA-Z_0-9]*;
+TAB: '\n    ';
+VAR: (CHAR | '_') (CHAR | NUM | '_')*;
+ARITH_OP: '+' | '-' | '*' | '/' | '%';
+ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '&=';
+COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
-// String literals (supports both single and double quotes)
-STRING: '\'' .*? '\'' | '"' .*? '"';
-
-// Number literals (supports integers and floats)
-NUMBER: [0-9]+ ('.' [0-9]+)?;
-
-// Boolean literals
-TRUE: 'True';
-FALSE: 'False';
-
-// Keywords
-IF: 'if';
-ELIF: 'elif';
-ELSE: 'else';
-AND: 'and';
-OR: 'or';
-NOT: 'not';
-COLON: ':';
+CHAR: [a-zA-Z_];
+NUM: [-]?[0-9]+ ('.' [0-9]+)?;
+STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
+BOOL: 'True' | 'False';
 
 // Whitespace (ignored)
-WS: [ \t\r\n]+ -> skip;
+WS: [\t\r\n]+ -> skip;
