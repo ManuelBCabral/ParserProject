@@ -3,8 +3,10 @@ grammar PythonParser;
 // Start rule to handle multiple statements
 start: (statement)* EOF;
 
+// Rules for different types of statements
 statement: ifStatement | assignment;
 
+// Rules for different types of assignments
 assignment: assignment ASSIGN_OP (assignment | arithmatic)
 	| BOOL
 	| VAR
@@ -13,10 +15,12 @@ assignment: assignment ASSIGN_OP (assignment | arithmatic)
 	| STRING
 	| array;
 
+// Rules for different types of arithmatic operations
 arithmatic: arithmatic ARITH_OP arithmatic
 	| VAR
 	| NUM;
 
+// Rules for different types of conditions
 condition: condition ('and' | 'or') condition
 	| condition COND_OP condition
 	| 'not' condition
@@ -25,20 +29,24 @@ condition: condition ('and' | 'or') condition
 	| NUM
 	| BOOL;
 
+// Rules for different types of if statements
 ifStatement: 'if' '('? condition ')'? ':' (' ')* block+ ('elif' '('? condition ')'? ':' block+)* ('else' ':' block+)?;
 
+// Rules for blocks
 block: TAB (statement)+;
 
+// Rules for array literals
 array: '[' (expr (',' expr)*)? ']';
-
 expr: (CHAR | NUM | STRING);
 
-TAB: '\n    ';
-VAR: (CHAR | '_') (CHAR | NUM | '_')*;
+// Operators
 ARITH_OP: '+' | '-' | '*' | '/' | '%';
 ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '&=';
 COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
+// Tokens
+TAB: '\n    ';
+VAR: (CHAR | '_') (CHAR | NUM | '_')*;
 CHAR: [a-zA-Z_];
 NUM: [-]?[0-9]+ ('.' [0-9]+)?;
 STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
