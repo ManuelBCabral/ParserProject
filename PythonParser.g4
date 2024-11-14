@@ -11,12 +11,12 @@ assign: ID ASSIGN_OP (expr | arrayLiteral | TRUE | FALSE);
 
 //Rule for if/elif/else statements
 ifStatement:
-	IF conditionBlock block (ELIF conditionBlock block)* (
-		ELSE COLON* block
-	)?;
+	IF conditionBlock block COLON (
+		ELIF conditionBlock COLON block
+	)* (ELSE COLON* block)?;
 
 //Condition block for if/elif statements
-conditionBlock: expr COLON;
+conditionBlock: expr;
 
 //Code block, allows multiple statements within braces block: statement | '{' (statement ';'?)* '}';
 block: '{' statement* '}' | statement+;
