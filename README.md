@@ -25,6 +25,6 @@ Python3 \Parser.py // this runs the file it is given into the parser and creates
 
 To test the parser with sample expressions:
 
-1. \*\*Prepare project_deliverable_2.py () contains the expressions you want to test, with each expression on a new line.
+1. \*\*Prepare project_deliverable_2.py () contains the expressions you want to test, with each expression starting on a new line.
 
-2. Run python or python3 Parser.py: Use the following command to print out tree of all of the expressions or just one if needed
+2. Run python (or python3 on mac) Parser.py after compiling the .g4 file: This command will display the parse tree for the expressions in the project_deliverable_2.py, another file can be used just have to run it as an arguement for the Parser.py file eg. python3 Parse.py <insert file name>
