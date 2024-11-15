@@ -35,12 +35,12 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#arithmatic.
-    def enterArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
+    # Enter a parse tree produced by PythonParserParser#arithmetic.
+    def enterArithmetic(self, ctx:PythonParserParser.ArithmeticContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#arithmatic.
-    def exitArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
+    # Exit a parse tree produced by PythonParserParser#arithmetic.
+    def exitArithmetic(self, ctx:PythonParserParser.ArithmeticContext):
         pass
 
 

@@ -27,21 +27,21 @@ def serializedATN():
         0,0,0,16,147,1,0,0,0,18,20,3,2,1,0,19,18,1,0,0,0,20,23,1,0,0,0,21,
         19,1,0,0,0,21,22,1,0,0,0,22,24,1,0,0,0,23,21,1,0,0,0,24,25,5,0,0,
         1,25,1,1,0,0,0,26,29,3,10,5,0,27,29,3,4,2,0,28,26,1,0,0,0,28,27,
-        1,0,0,0,29,3,1,0,0,0,30,31,6,2,-1,0,31,38,5,21,0,0,32,38,5,14,0,
+        1,0,0,0,29,3,1,0,0,0,30,31,6,2,-1,0,31,38,5,21,0,0,32,38,5,17,0,
         0,33,38,5,19,0,0,34,38,5,18,0,0,35,38,5,20,0,0,36,38,3,14,7,0,37,
         30,1,0,0,0,37,32,1,0,0,0,37,33,1,0,0,0,37,34,1,0,0,0,37,35,1,0,0,
-        0,37,36,1,0,0,0,38,47,1,0,0,0,39,40,10,7,0,0,40,43,5,16,0,0,41,44,
+        0,37,36,1,0,0,0,38,47,1,0,0,0,39,40,10,7,0,0,40,43,5,14,0,0,41,44,
         3,4,2,0,42,44,3,6,3,0,43,41,1,0,0,0,43,42,1,0,0,0,44,46,1,0,0,0,
         45,39,1,0,0,0,46,49,1,0,0,0,47,45,1,0,0,0,47,48,1,0,0,0,48,5,1,0,
-        0,0,49,47,1,0,0,0,50,51,6,3,-1,0,51,54,5,14,0,0,52,54,5,19,0,0,53,
-        50,1,0,0,0,53,52,1,0,0,0,54,60,1,0,0,0,55,56,10,3,0,0,56,57,5,15,
+        0,0,49,47,1,0,0,0,50,51,6,3,-1,0,51,54,5,17,0,0,52,54,5,19,0,0,53,
+        50,1,0,0,0,53,52,1,0,0,0,54,60,1,0,0,0,55,56,10,3,0,0,56,57,5,13,
         0,0,57,59,3,6,3,4,58,55,1,0,0,0,59,62,1,0,0,0,60,58,1,0,0,0,60,61,
         1,0,0,0,61,7,1,0,0,0,62,60,1,0,0,0,63,64,6,4,-1,0,64,65,5,3,0,0,
         65,74,3,8,4,5,66,67,5,4,0,0,67,68,3,8,4,0,68,69,5,5,0,0,69,74,1,
-        0,0,0,70,74,5,14,0,0,71,74,5,19,0,0,72,74,5,21,0,0,73,63,1,0,0,0,
+        0,0,0,70,74,5,17,0,0,71,74,5,19,0,0,72,74,5,21,0,0,73,63,1,0,0,0,
         73,66,1,0,0,0,73,70,1,0,0,0,73,71,1,0,0,0,73,72,1,0,0,0,74,83,1,
         0,0,0,75,76,10,7,0,0,76,77,7,0,0,0,77,82,3,8,4,8,78,79,10,6,0,0,
-        79,80,5,17,0,0,80,82,3,8,4,7,81,75,1,0,0,0,81,78,1,0,0,0,82,85,1,
+        79,80,5,15,0,0,80,82,3,8,4,7,81,75,1,0,0,0,81,78,1,0,0,0,82,85,1,
         0,0,0,83,81,1,0,0,0,83,84,1,0,0,0,84,9,1,0,0,0,85,83,1,0,0,0,86,
         88,5,6,0,0,87,89,5,4,0,0,88,87,1,0,0,0,88,89,1,0,0,0,89,90,1,0,0,
         0,90,92,3,8,4,0,91,93,5,5,0,0,92,91,1,0,0,0,92,93,1,0,0,0,93,94,
@@ -55,7 +55,7 @@ def serializedATN():
         1,0,0,0,118,116,1,0,0,0,119,120,5,9,0,0,120,122,5,7,0,0,121,123,
         3,12,6,0,122,121,1,0,0,0,123,124,1,0,0,0,124,122,1,0,0,0,124,125,
         1,0,0,0,125,127,1,0,0,0,126,119,1,0,0,0,126,127,1,0,0,0,127,11,1,
-        0,0,0,128,130,5,13,0,0,129,131,3,2,1,0,130,129,1,0,0,0,131,132,1,
+        0,0,0,128,130,5,16,0,0,129,131,3,2,1,0,130,129,1,0,0,0,131,132,1,
         0,0,0,132,130,1,0,0,0,132,133,1,0,0,0,133,13,1,0,0,0,134,143,5,10,
         0,0,135,140,3,16,8,0,136,137,5,11,0,0,137,139,3,16,8,0,138,136,1,
         0,0,0,139,142,1,0,0,0,140,138,1,0,0,0,140,141,1,0,0,0,141,144,1,
@@ -77,25 +77,25 @@ class PythonParserParser ( Parser ):
 
     literalNames = [ "<INVALID>", "'and'", "'or'", "'not'", "'('", "')'", 
                      "'if'", "':'", "'elif'", "'else'", "'['", "','", "']'", 
-                     "'\\n    '" ]
+                     "<INVALID>", "<INVALID>", "<INVALID>", "'\\n    '" ]
 
     symbolicNames = [ "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
                       "<INVALID>", "<INVALID>", "<INVALID>", "<INVALID>", 
-                      "<INVALID>", "TAB", "VAR", "ARITH_OP", "ASSIGN_OP", 
-                      "COND_OP", "CHAR", "NUM", "STRING", "BOOL", "WS" ]
+                      "<INVALID>", "ARITH_OP", "ASSIGN_OP", "COND_OP", "TAB", 
+                      "VAR", "CHAR", "NUM", "STRING", "BOOL", "WS" ]
 
     RULE_start = 0
     RULE_statement = 1
     RULE_assignment = 2
-    RULE_arithmatic = 3
+    RULE_arithmetic = 3
     RULE_condition = 4
     RULE_ifStatement = 5
     RULE_block = 6
     RULE_array = 7
     RULE_expr = 8
 
-    ruleNames =  [ "start", "statement", "assignment", "arithmatic", "condition", 
+    ruleNames =  [ "start", "statement", "assignment", "arithmetic", "condition", 
                    "ifStatement", "block", "array", "expr" ]
 
     EOF = Token.EOF
@@ -111,11 +111,11 @@ class PythonParserParser ( Parser ):
     T__9=10
     T__10=11
     T__11=12
-    TAB=13
-    VAR=14
-    ARITH_OP=15
-    ASSIGN_OP=16
-    COND_OP=17
+    ARITH_OP=13
+    ASSIGN_OP=14
+    COND_OP=15
+    TAB=16
+    VAR=17
     CHAR=18
     NUM=19
     STRING=20
@@ -172,7 +172,7 @@ class PythonParserParser ( Parser ):
             self.state = 21
             self._errHandler.sync(self)
             _la = self._input.LA(1)
-            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 3949632) != 0):
+            while (((_la) & ~0x3f) == 0 and ((1 << _la) & 4064320) != 0):
                 self.state = 18
                 self.statement()
                 self.state = 23
@@ -232,7 +232,7 @@ class PythonParserParser ( Parser ):
                 self.state = 26
                 self.ifStatement()
                 pass
-            elif token in [10, 14, 18, 19, 20, 21]:
+            elif token in [10, 17, 18, 19, 20, 21]:
                 self.enterOuterAlt(localctx, 2)
                 self.state = 27
                 self.assignment(0)
@@ -285,8 +285,8 @@ class PythonParserParser ( Parser ):
         def ASSIGN_OP(self):
             return self.getToken(PythonParserParser.ASSIGN_OP, 0)
 
-        def arithmatic(self):
-            return self.getTypedRuleContext(PythonParserParser.ArithmaticContext,0)
+        def arithmetic(self):
+            return self.getTypedRuleContext(PythonParserParser.ArithmeticContext,0)
 
 
         def getRuleIndex(self):
@@ -318,7 +318,7 @@ class PythonParserParser ( Parser ):
                 self.state = 31
                 self.match(PythonParserParser.BOOL)
                 pass
-            elif token in [14]:
+            elif token in [17]:
                 self.state = 32
                 self.match(PythonParserParser.VAR)
                 pass
@@ -368,7 +368,7 @@ class PythonParserParser ( Parser ):
 
                     elif la_ == 2:
                         self.state = 42
-                        self.arithmatic(0)
+                        self.arithmetic(0)
                         pass
 
              
@@ -385,7 +385,7 @@ class PythonParserParser ( Parser ):
         return localctx
 
 
-    class ArithmaticContext(ParserRuleContext):
+    class ArithmeticContext(ParserRuleContext):
         __slots__ = 'parser'
 
         def __init__(self, parser, parent:ParserRuleContext=None, invokingState:int=-1):
@@ -398,42 +398,42 @@ class PythonParserParser ( Parser ):
         def NUM(self):
             return self.getToken(PythonParserParser.NUM, 0)
 
-        def arithmatic(self, i:int=None):
+        def arithmetic(self, i:int=None):
             if i is None:
-                return self.getTypedRuleContexts(PythonParserParser.ArithmaticContext)
+                return self.getTypedRuleContexts(PythonParserParser.ArithmeticContext)
             else:
-                return self.getTypedRuleContext(PythonParserParser.ArithmaticContext,i)
+                return self.getTypedRuleContext(PythonParserParser.ArithmeticContext,i)
 
 
         def ARITH_OP(self):
             return self.getToken(PythonParserParser.ARITH_OP, 0)
 
         def getRuleIndex(self):
-            return PythonParserParser.RULE_arithmatic
+            return PythonParserParser.RULE_arithmetic
 
         def enterRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "enterArithmatic" ):
-                listener.enterArithmatic(self)
+            if hasattr( listener, "enterArithmetic" ):
+                listener.enterArithmetic(self)
 
         def exitRule(self, listener:ParseTreeListener):
-            if hasattr( listener, "exitArithmatic" ):
-                listener.exitArithmatic(self)
+            if hasattr( listener, "exitArithmetic" ):
+                listener.exitArithmetic(self)
 
 
 
-    def arithmatic(self, _p:int=0):
+    def arithmetic(self, _p:int=0):
         _parentctx = self._ctx
         _parentState = self.state
-        localctx = PythonParserParser.ArithmaticContext(self, self._ctx, _parentState)
+        localctx = PythonParserParser.ArithmeticContext(self, self._ctx, _parentState)
         _prevctx = localctx
         _startState = 6
-        self.enterRecursionRule(localctx, 6, self.RULE_arithmatic, _p)
+        self.enterRecursionRule(localctx, 6, self.RULE_arithmetic, _p)
         try:
             self.enterOuterAlt(localctx, 1)
             self.state = 53
             self._errHandler.sync(self)
             token = self._input.LA(1)
-            if token in [14]:
+            if token in [17]:
                 self.state = 51
                 self.match(PythonParserParser.VAR)
                 pass
@@ -453,8 +453,8 @@ class PythonParserParser ( Parser ):
                     if self._parseListeners is not None:
                         self.triggerExitRuleEvent()
                     _prevctx = localctx
-                    localctx = PythonParserParser.ArithmaticContext(self, _parentctx, _parentState)
-                    self.pushNewRecursionContext(localctx, _startState, self.RULE_arithmatic)
+                    localctx = PythonParserParser.ArithmeticContext(self, _parentctx, _parentState)
+                    self.pushNewRecursionContext(localctx, _startState, self.RULE_arithmetic)
                     self.state = 55
                     if not self.precpred(self._ctx, 3):
                         from antlr4.error.Errors import FailedPredicateException
@@ -462,7 +462,7 @@ class PythonParserParser ( Parser ):
                     self.state = 56
                     self.match(PythonParserParser.ARITH_OP)
                     self.state = 57
-                    self.arithmatic(4) 
+                    self.arithmetic(4) 
                 self.state = 62
                 self._errHandler.sync(self)
                 _alt = self._interp.adaptivePredict(self._input,6,self._ctx)
@@ -542,7 +542,7 @@ class PythonParserParser ( Parser ):
                 self.state = 68
                 self.match(PythonParserParser.T__4)
                 pass
-            elif token in [14]:
+            elif token in [17]:
                 self.state = 70
                 self.match(PythonParserParser.VAR)
                 pass
@@ -958,7 +958,7 @@ class PythonParserParser ( Parser ):
         if self._predicates == None:
             self._predicates = dict()
         self._predicates[2] = self.assignment_sempred
-        self._predicates[3] = self.arithmatic_sempred
+        self._predicates[3] = self.arithmetic_sempred
         self._predicates[4] = self.condition_sempred
         pred = self._predicates.get(ruleIndex, None)
         if pred is None:
@@ -971,7 +971,7 @@ class PythonParserParser ( Parser ):
                 return self.precpred(self._ctx, 7)
          
 
-    def arithmatic_sempred(self, localctx:ArithmaticContext, predIndex:int):
+    def arithmetic_sempred(self, localctx:ArithmeticContext, predIndex:int):
             if predIndex == 1:
                 return self.precpred(self._ctx, 3)
          

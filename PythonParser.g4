@@ -7,7 +7,7 @@ start: (statement)* EOF;
 statement: ifStatement | assignment;
 
 // Rules for different types of assignments
-assignment: assignment ASSIGN_OP (assignment | arithmatic)
+assignment: assignment ASSIGN_OP (assignment | arithmetic)
 	| BOOL
 	| VAR
 	| NUM
@@ -15,8 +15,8 @@ assignment: assignment ASSIGN_OP (assignment | arithmatic)
 	| STRING
 	| array;
 
-// Rules for different types of arithmatic operations
-arithmatic: arithmatic ARITH_OP arithmatic
+// Rules for different types of arithmetic operations
+arithmetic: arithmetic ARITH_OP arithmetic
 	| VAR
 	| NUM;
 
@@ -30,7 +30,7 @@ condition: condition ('and' | 'or') condition
 	| BOOL;
 
 // Rules for different types of if statements
-ifStatement: 'if' '('? condition ')'? ':' (' ')* block+ ('elif' '('? condition ')'? ':' block+)* ('else' ':' block+)?;
+ifStatement: 'if' '('? condition ')'? ':' block+ ('elif' '('? condition ')'? ':' block+)* ('else' ':' block+)?;
 
 // Rules for blocks
 block: TAB (statement)+;
@@ -53,4 +53,4 @@ STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
 BOOL: 'True' | 'False';
 
 // Whitespace (ignored)
-WS: [\t\r\n]+ -> skip;
+WS: [ \t\r\n]+ -> skip;
