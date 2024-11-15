@@ -25,7 +25,6 @@ Python3 \Parser.py // this runs the file it is given into the parser and creates
 
 To test the parser with sample expressions:
 
-1. **Prepare `expressions.txt`**: Ensure `expressions.txt` contains the expressions you want to test, with each expression on a new line.
+1. \*\*Prepare project_deliverable_2.py () contains the expressions you want to test, with each expression on a new line.
 
-2. Run test_parser.py: Use the following command to parse each expression in expressions.txt and print the corresponding parse tree
-   python3 test_parser.py expressions.txt
+2. Run python or python3 Parser.py: Use the following command to print out tree of all of the expressions or just one if needed
