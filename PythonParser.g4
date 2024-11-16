@@ -33,7 +33,7 @@ condition: condition ('and' | 'or') condition
 ifStatement: 'if' '('? condition ')'? ':' block+ ('elif' '('? condition ')'? ':' block+)* ('else' ':' block+)?;
 
 // Rules for blocks
-block: TAB (statement)+;
+block: TAB statement;
 
 // Rules for array literals
 array: '[' (expr (',' expr)*)? ']';
@@ -53,4 +53,4 @@ STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
 BOOL: 'True' | 'False';
 
 // Whitespace (ignored)
-WS: [ \t\r\n]+ -> skip;
+WS: [ \r\n]+ -> skip;
