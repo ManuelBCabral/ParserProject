@@ -60,10 +60,11 @@ STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
 BOOL: 'True' | 'False';
 RANGE: 'range(' NUM ',' NUM ')';
 
-// Comment rules
+// Ignore rules
 // NEEDS WORK, DOESNT FAILS WHEN COMMENTS ARE WITHIN A LOOP OR WHILE/IF STATEMENT
 ONECOMMENT: '#' ~[\r\n]* -> skip;
-MULTICOMMENT: '"""' .*? '"""' -> skip;
+MULTICOMMENTDOUBLE: '"""' .*? '"""' -> skip;
 
-// Whitespace (ignored)
+// THIS NEEDS TO CHANGE TO SINGLE QUOTES '''
+MULTICOMMENTSINGLE: '"""' .*? '"""' -> skip;
 WS: [ \r\n]+ -> skip;
