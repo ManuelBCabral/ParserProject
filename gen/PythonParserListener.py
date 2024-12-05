@@ -26,33 +26,6 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#assignment.
-    def enterAssignment(self, ctx:PythonParserParser.AssignmentContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#assignment.
-    def exitAssignment(self, ctx:PythonParserParser.AssignmentContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#arithmetic.
-    def enterArithmetic(self, ctx:PythonParserParser.ArithmeticContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#arithmetic.
-    def exitArithmetic(self, ctx:PythonParserParser.ArithmeticContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#condition.
-    def enterCondition(self, ctx:PythonParserParser.ConditionContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#condition.
-    def exitCondition(self, ctx:PythonParserParser.ConditionContext):
-        pass
-
-
     # Enter a parse tree produced by PythonParserParser#ifStatement.
     def enterIfStatement(self, ctx:PythonParserParser.IfStatementContext):
         pass
@@ -62,12 +35,21 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#whileStatement.
-    def enterWhileStatement(self, ctx:PythonParserParser.WhileStatementContext):
+    # Enter a parse tree produced by PythonParserParser#elif.
+    def enterElif(self, ctx:PythonParserParser.ElifContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#whileStatement.
-    def exitWhileStatement(self, ctx:PythonParserParser.WhileStatementContext):
+    # Exit a parse tree produced by PythonParserParser#elif.
+    def exitElif(self, ctx:PythonParserParser.ElifContext):
+        pass
+
+
+    # Enter a parse tree produced by PythonParserParser#else.
+    def enterElse(self, ctx:PythonParserParser.ElseContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#else.
+    def exitElse(self, ctx:PythonParserParser.ElseContext):
         pass
 
 
@@ -80,39 +62,30 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#loopStructure.
-    def enterLoopStructure(self, ctx:PythonParserParser.LoopStructureContext):
+    # Enter a parse tree produced by PythonParserParser#whileStatement.
+    def enterWhileStatement(self, ctx:PythonParserParser.WhileStatementContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#loopStructure.
-    def exitLoopStructure(self, ctx:PythonParserParser.LoopStructureContext):
-        pass
-
-
-    # Enter a parse tree produced by PythonParserParser#block.
-    def enterBlock(self, ctx:PythonParserParser.BlockContext):
-        pass
-
-    # Exit a parse tree produced by PythonParserParser#block.
-    def exitBlock(self, ctx:PythonParserParser.BlockContext):
+    # Exit a parse tree produced by PythonParserParser#whileStatement.
+    def exitWhileStatement(self, ctx:PythonParserParser.WhileStatementContext):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#array.
-    def enterArray(self, ctx:PythonParserParser.ArrayContext):
+    # Enter a parse tree produced by PythonParserParser#expression.
+    def enterExpression(self, ctx:PythonParserParser.ExpressionContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#array.
-    def exitArray(self, ctx:PythonParserParser.ArrayContext):
+    # Exit a parse tree produced by PythonParserParser#expression.
+    def exitExpression(self, ctx:PythonParserParser.ExpressionContext):
         pass
 
 
-    # Enter a parse tree produced by PythonParserParser#expr.
-    def enterExpr(self, ctx:PythonParserParser.ExprContext):
+    # Enter a parse tree produced by PythonParserParser#arithmatic.
+    def enterArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
         pass
 
-    # Exit a parse tree produced by PythonParserParser#expr.
-    def exitExpr(self, ctx:PythonParserParser.ExprContext):
+    # Exit a parse tree produced by PythonParserParser#arithmatic.
+    def exitArithmatic(self, ctx:PythonParserParser.ArithmaticContext):
         pass
 
 

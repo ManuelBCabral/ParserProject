@@ -1,76 +1,78 @@
 grammar PythonParser;
 
-// Start rule to handle multiple statements
-start: (statement)* EOF;
 
-// Rules for different types of statements
-statement:
-	ifStatement
-	| assignment
-	| whileStatement
-	| forStatement;
+// Start rule for the parser //
+start
+		: (statement)* EOF;
 
-// Rules for different types of assignments
-assignment:
-	assignment ASSIGN_OP (assignment | arithmetic)
-	| BOOL
-	| VAR
-	| NUM
-	| CHAR
-	| STRING
-	| array;
+// Statement rules //
+statement
+		:	(expression | COMMENT)
+		|	(ifStatement | whileStatement | forStatement)
+		;
 
-// Rules for different types of arithmetic operations
-arithmetic: arithmetic ARITH_OP arithmetic | VAR | NUM;
+// If statement and elif/else helpers //
+ifStatement
+		:	INDENT* 'if' expression (COND_OP expression)* ':'
+			(INDENT* statement)+ 
+			(elif)* (else)?
+		;
 
-// Rules for different types of conditions
-condition:
-	condition ('and' | 'or') condition
-	| condition COND_OP condition
-	| 'not' condition
-	| '(' condition ')'
-	| VAR
-	| NUM
-	| BOOL;
+elif
+		:	INDENT* 'elif' expression (COND_OP expression)* ':' 
+			(INDENT* statement)+ 
+		;
 
-// Rules for different types of if statements
-ifStatement:
-	'if' '('? condition ')'? ':' block+ (
-		'elif' '('? condition ')'? ':' block+
-	)* ('else' ':' block+)?;
+else
+		:	INDENT* 'else' ':' (INDENT* statement)+
+		;
 
-whileStatement: 'while' '('? condition ')'? ':' block+;
 
-forStatement:
-	'for' VAR 'in' (
-		loopStructure
-		| ('range' '(' NUM (',' NUM)? ')')
-	) ':' block+;
+// For and while loop //	
+forStatement
+		:	INDENT* 'for' VAR 'in' (
+			VAR 
+			| ('range(' NUMBER ',' NUMBER ')')
+			) ':' (INDENT statement)+
+		;
 
-loopStructure: array | VAR;
+whileStatement
+		:	INDENT* 'while' expression (COND_OP expression)* ':' 
+			(INDENT* statement)+
+		;
 
-block: statement;
+// Expression rules //
+expression
+		:   (arithmatic | VAR) (ASSGN_OP | COND_OP) (arithmatic | VAR)          
+		|   COND_OP VAR   
+		|   BOOL        
+		|   '(' expression ')'                               
+		;
 
-// Rules for array literals
-array: '[' (expr (',' expr)*)? ']';
-expr: (CHAR | NUM | STRING);
+// Arithmatic operation rules //
+arithmatic
+		:	arithmatic ARITH_OP arithmatic
+		|   (NUMBER | STRING | ARRAY | BOOL | VAR)
+		;
 
-// Operators
-ARITH_OP: '+' | '-' | '*' | '/' | '%';
-ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '&=';
-COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
-// Tokens
-NEWLINE: '/r'? '\n';
-VAR: (CHAR | '_') (CHAR | NUM | '_')*;
-CHAR: [a-zA-Z_];
-NUM: [-]? [0-9]+ ('.' [0-9]+)?;
-STRING:
-	'"' ('\\' . | ~["\\])* '"'
-	| '\'' ('\\' . | ~['\\])* '\'';
-BOOL: 'True' | 'False';
+// Operators //
+ARITH_OP: '*'| '/'| '%'| '+'| '-' ;
+ASSGN_OP: '=' | '+=' | '-=' | '*=' | '/=' ;
+COND_OP : '<'| '<=' | '>' | '>=' | '==' | '!=' | 'and'  | 'or'  | 'not';
 
-// Whitespace (ignored)
-WS: [ \t\r\n]+ -> skip;
-COMMENT: '#' ~[\r\n]* -> skip;
-SINGLEQUOTECOMMENT: '\'\'\'' .*? '\'\'\'' -> skip;
+
+// Token rules //
+BOOL    : ('True' | 'False');
+VAR     : [a-zA-Z_] [a-zA-Z_0-9]* ;
+NUMBER  : '-'? [0-9]+ ('.' [0-9]+)? ;
+STRING  : (('"') ( ~["\r\n] )* ('"')) | (('\'') (~['\r\n])* ('\''));
+ARRAY   : '[' (NUMBER | STRING) (', ' (NUMBER | STRING))* ']';
+
+// Comment rules //
+COMMENT : ('#' ~[\r\n]*) | '\'\'\'' VAR*.*? '\'\'\'';
+
+// Whitespace rules //
+INDENT  : '\t'; 
+NEWLINE : '\r' ? '\n' -> skip;
+WS      : [ \t]+ -> skip;
