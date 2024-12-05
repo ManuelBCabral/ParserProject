@@ -8,12 +8,14 @@ start
 // Statement rules //
 statement
 		:	expression
-		|	(ifStatement | whileStatement | forStatement)
+		|	indentStatement
 		;
+
+indentStatement: INDENT* (ifStatement | whileStatement | forStatement);
 
 // If statement and elif/else helpers //
 ifStatement
-		:	INDENT* 'if' expression (COND_OP expression)* ':'
+		:	'if' expression (COND_OP expression)* ':'
 			(INDENT* statement)+ 
 			(elif)* (else)?
 		;
@@ -30,14 +32,14 @@ else
 
 // For and while loop //	
 forStatement
-		:	INDENT* 'for' VAR 'in' (
+		:	'for' VAR 'in' (
 			VAR 
 			| ('range(' NUMBER ',' NUMBER ')')
 			) ':' (INDENT* statement)+
 		;
 
 whileStatement
-		:	INDENT* 'while' expression (COND_OP expression)* ':' 
+		:	'while' expression (COND_OP expression)* ':' 
 			(INDENT* statement)+
 		;
 

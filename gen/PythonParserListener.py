@@ -26,6 +26,15 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonParserParser#indentStatement.
+    def enterIndentStatement(self, ctx:PythonParserParser.IndentStatementContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#indentStatement.
+    def exitIndentStatement(self, ctx:PythonParserParser.IndentStatementContext):
+        pass
+
+
     # Enter a parse tree produced by PythonParserParser#ifStatement.
     def enterIfStatement(self, ctx:PythonParserParser.IfStatementContext):
         pass
