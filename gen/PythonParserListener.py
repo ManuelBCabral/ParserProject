@@ -80,6 +80,15 @@ class PythonParserListener(ParseTreeListener):
         pass
 
 
+    # Enter a parse tree produced by PythonParserParser#loopStructure.
+    def enterLoopStructure(self, ctx:PythonParserParser.LoopStructureContext):
+        pass
+
+    # Exit a parse tree produced by PythonParserParser#loopStructure.
+    def exitLoopStructure(self, ctx:PythonParserParser.LoopStructureContext):
+        pass
+
+
     # Enter a parse tree produced by PythonParserParser#block.
     def enterBlock(self, ctx:PythonParserParser.BlockContext):
         pass

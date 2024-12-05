@@ -1,77 +1,79 @@
 grammar PythonParser;
 
-// Start rule for multiple statements
-start: (statement NEWLINE)* EOF;
+// Start rule to handle multiple statements
+start: (statement)* EOF;
 
-// Rules for statements
-statement: assignment
-         | arithmetic
-         | arrayAssignment
-         | ifStatement
-         | whileStatement
-         | forStatement
-         | VAR ASSIGN_OP expr; // Additional expressions for generality
+// Rules for different types of statements
+statement:
+	ifStatement
+	| assignment
+	| whileStatement
+	| forStatement;
 
-// Rules for assignments
-assignment: VAR ASSIGN_OP (STRING | NUM | BOOL | VAR | arithmetic | arrayAssignment);
+// Rules for different types of assignments
+assignment:
+	assignment ASSIGN_OP (assignment | arithmetic)
+	| BOOL
+	| VAR
+	| NUM
+	| CHAR
+	| STRING
+	| array;
 
-// Rules for arithmetic operations
-arithmetic: arithmetic ARITH_OP arithmetic
-          | VAR
-          | NUM;
+// Rules for different types of arithmetic operations
+arithmetic: arithmetic ARITH_OP arithmetic | VAR | NUM;
 
-// Rules for arrays
-arrayAssignment: VAR ASSIGN_OP '[' (expr (',' expr)*)? ']';
+// Rules for different types of conditions
+condition:
+	condition ('and' | 'or') condition
+	| condition COND_OP condition
+	| 'not' condition
+	| '(' condition ')'
+	| VAR
+	| NUM
+	| BOOL;
 
-// Rules for expressions
-expr: STRING
-    | NUM
-    | BOOL
-    | VAR;
+// Rules for different types of if statements
+ifStatement:
+	'if' '('? condition ')'? ':' block+ (
+		'elif' '('? condition ')'? ':' block+
+	)* ('else' ':' block+)?;
 
-// Rules for conditions
-condition: condition ('and' | 'or') condition
-         | 'not' condition
-         | '(' condition ')'
-         | VAR COND_OP VAR
-         | VAR COND_OP NUM
-         | VAR COND_OP BOOL
-         | NUM COND_OP NUM
-         | BOOL;
+whileStatement: 'while' '('? condition ')'? ':' block+;
 
-// Rules for if-elif-else statements
-ifStatement: 'if' condition ':' block
-           ('elif' condition ':' block)*
-           ('else' ':' block)?;
+forStatement:
+	'for' VAR 'in' (
+		loopStructure
+		| ('range' '(' NUM (',' NUM)? ')')
+	) ':' block+;
 
-// Rules for while statements
-whileStatement: 'while' condition ':' block;
+loopStructure: array | VAR;
 
-// Rules for for loops
-forStatement: 'for' VAR 'in' (RANGE | VAR) ':' block;
+block: (TAB1 | TAB2 | TAB3) statement+;
 
-// Rules for blocks
-block: INDENT statement+ DEDENT;
+// Rules for array literals
+array: '[' (expr (',' expr)*)? ']';
+expr: (CHAR | NUM | STRING);
 
 // Operators
 ARITH_OP: '+' | '-' | '*' | '/' | '%';
-ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=';
+ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '&=';
 COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
 // Tokens
-VAR: [a-zA-Z_] [a-zA-Z_0-9]*;
-NUM: '-'? [0-9]+ ('.' [0-9]+)?;
-STRING: '"' ('\\' . | ~["\\])* '"' | '\'' ('\\' . | ~['\\])* '\'';
+TAB1: '\n\t';
+TAB2: '\n\t\t';
+TAB3: '\n\t\t\t';
+
+VAR: (CHAR | '_') (CHAR | NUM | '_')*;
+CHAR: [a-zA-Z_];
+NUM: [-]? [0-9]+ ('.' [0-9]+)?;
+STRING:
+	'"' ('\\' . | ~["\\])* '"'
+	| '\'' ('\\' . | ~['\\])* '\'';
 BOOL: 'True' | 'False';
-RANGE: 'range(' NUM ',' NUM ')';
 
-// Handling newlines and indentation
-NEWLINE: '\r'? '\n'; // Handles both Unix and Windows line endings
-WS: [ \t]+ -> skip; // Skips spaces and tabs
-
-INDENT: NEWLINE {indentLevel++}; // Track increased indentation
-DEDENT: NEWLINE {indentLevel--}; // Track decreased indentation
-
-// Ignore comments
+// Whitespace (ignored)
+WS: [ \r\n]+ -> skip;
 COMMENT: '#' ~[\r\n]* -> skip;
-MULTICOMMENT: '\'\'\'' .*? '\'\'\'' -> skip;
+MULTICOMMENT: '"""' .*? '"""' -> skip;
