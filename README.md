@@ -1,6 +1,26 @@
 # Python Language Parser
 
-Our project is a parser for the Python Language using context-free grammars.
+Our project aims to create a parser for the Python programming language using ANTLR4 a parser generator.
+
+Throughout the code, we use ANTLR4 to create CFG's (Context-Free-Grammars) that define the syntax rules for valid Python expressions.
+
+We then use that ANTLR4 grammar to create a parse tree to visually represent the code structure it implements.
+
+## Features Supported
+
+### Statement Types
+
+1. Assignment Statements
+2. If Statements
+3. While Loops
+4. For Loops
+5. Nested Statements
+
+### Other
+
+1. Artihmetic Expressions
+2. Operators
+3. Conditionals
 
 ## Team Members
 
