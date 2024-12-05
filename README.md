@@ -88,3 +88,17 @@ This command runs the file given to the parser and creates the parse tree.
    python3 Parser.py <insert file name>
    ```
    This command will display the parse tree for the expressions in the specified file. Alternatively, you can change the file being tested by modifying line 28 in `Parser.py`.
+
+   ## Testing the Parser on Antlr Lab
+### Step 1.
+http://lab.antlr.org/ go to this website
+### Step 2.
+Delete the code in the lexer section on the top left
+### Step 3.
+Insert our .g4 file into the parser section on the top left
+### Step 4.
+Insert project_deliverable_3.py into the input on the right side
+### Step 5. 
+Put start into the start rule on the website
+### Step 6.
+Click run and see the generated parse tree svg file.
