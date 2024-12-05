@@ -49,7 +49,7 @@ forStatement:
 
 loopStructure: array | VAR;
 
-block: (TAB1 | TAB2 | TAB3) statement;
+block: statement;
 
 // Rules for array literals
 array: '[' (expr (',' expr)*)? ']';
@@ -61,9 +61,7 @@ ASSIGN_OP: '=' | '+=' | '-=' | '*=' | '/=' | '%=' | '&=';
 COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
 // Tokens
-TAB1: '\n\t';
-TAB2: '\n\t\t';
-TAB3: '\n\t\t\t';
+NEWLINE: '/r'? '\n';
 
 VAR: (CHAR | '_') (CHAR | NUM | '_')*;
 CHAR: [a-zA-Z_];
@@ -74,6 +72,6 @@ STRING:
 BOOL: 'True' | 'False';
 
 // Whitespace (ignored)
-WS: [ \r\n]+ -> skip;
+WS: [ \t\r\n]+ -> skip;
 COMMENT: '#' ~[\r\n]* -> skip;
 MULTICOMMENT: '"""' .*? '"""' -> skip;
