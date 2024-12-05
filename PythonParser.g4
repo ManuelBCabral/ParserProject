@@ -8,10 +8,10 @@ start
 // Statement rules //
 statement
 		:	expression
-		|	indentStatement
+		|	indentedStatement
 		;
 
-indentStatement: INDENT* (ifStatement | whileStatement | forStatement);
+indentedStatement: INDENT* (ifStatement | whileStatement | forStatement);
 
 // If statement and elif/else helpers //
 ifStatement
