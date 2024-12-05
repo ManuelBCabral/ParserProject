@@ -19,7 +19,7 @@ public class PythonParserLexer extends Lexer {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, ARITH_OP=17, 
 		ASSIGN_OP=18, COND_OP=19, NEWLINE=20, VAR=21, CHAR=22, NUM=23, STRING=24, 
-		BOOL=25, WS=26, COMMENT=27, SINGLEQUOTEMULTICOMMENT=28;
+		BOOL=25, WS=26, COMMENT=27, SINGLEQUOTECOMMENT=28;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -33,7 +33,7 @@ public class PythonParserLexer extends Lexer {
 			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
 			"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "ARITH_OP", 
 			"ASSIGN_OP", "COND_OP", "NEWLINE", "VAR", "CHAR", "NUM", "STRING", "BOOL", 
-			"WS", "COMMENT", "SINGLEQUOTEMULTICOMMENT"
+			"WS", "COMMENT", "SINGLEQUOTECOMMENT"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -49,7 +49,7 @@ public class PythonParserLexer extends Lexer {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, "ARITH_OP", "ASSIGN_OP", "COND_OP", "NEWLINE", 
-			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "SINGLEQUOTEMULTICOMMENT"
+			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "SINGLEQUOTECOMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();

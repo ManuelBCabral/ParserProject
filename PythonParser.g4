@@ -62,7 +62,6 @@ COND_OP: '==' | '!=' | '<' | '<=' | '>' | '>=';
 
 // Tokens
 NEWLINE: '/r'? '\n';
-
 VAR: (CHAR | '_') (CHAR | NUM | '_')*;
 CHAR: [a-zA-Z_];
 NUM: [-]? [0-9]+ ('.' [0-9]+)?;
@@ -74,4 +73,4 @@ BOOL: 'True' | 'False';
 // Whitespace (ignored)
 WS: [ \t\r\n]+ -> skip;
 COMMENT: '#' ~[\r\n]* -> skip;
-SINGLEQUOTEMULTICOMMENT: '\'\'\'' .*? '\'\'\'' -> skip;
+SINGLEQUOTECOMMENT: '\'\'\'' .*? '\'\'\'' -> skip;

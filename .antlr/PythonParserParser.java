@@ -19,7 +19,7 @@ public class PythonParserParser extends Parser {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, ARITH_OP=17, 
 		ASSIGN_OP=18, COND_OP=19, NEWLINE=20, VAR=21, CHAR=22, NUM=23, STRING=24, 
-		BOOL=25, WS=26, COMMENT=27, SINGLEQUOTEMULTICOMMENT=28;
+		BOOL=25, WS=26, COMMENT=27, SINGLEQUOTECOMMENT=28;
 	public static final int
 		RULE_start = 0, RULE_statement = 1, RULE_assignment = 2, RULE_arithmetic = 3, 
 		RULE_condition = 4, RULE_ifStatement = 5, RULE_whileStatement = 6, RULE_forStatement = 7, 
@@ -44,7 +44,7 @@ public class PythonParserParser extends Parser {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, "ARITH_OP", "ASSIGN_OP", "COND_OP", "NEWLINE", 
-			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "SINGLEQUOTEMULTICOMMENT"
+			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "SINGLEQUOTECOMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
