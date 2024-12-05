@@ -74,4 +74,4 @@ BOOL: 'True' | 'False';
 // Whitespace (ignored)
 WS: [ \t\r\n]+ -> skip;
 COMMENT: '#' ~[\r\n]* -> skip;
-MULTICOMMENT: '"""' .*? '"""' -> skip;
+SINGLEQUOTEMULTICOMMENT: '\'\'\'' .*? '\'\'\'' -> skip;

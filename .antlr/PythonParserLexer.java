@@ -19,7 +19,7 @@ public class PythonParserLexer extends Lexer {
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, T__8=9, 
 		T__9=10, T__10=11, T__11=12, T__12=13, T__13=14, T__14=15, T__15=16, ARITH_OP=17, 
 		ASSIGN_OP=18, COND_OP=19, NEWLINE=20, VAR=21, CHAR=22, NUM=23, STRING=24, 
-		BOOL=25, WS=26, COMMENT=27, MULTICOMMENT=28;
+		BOOL=25, WS=26, COMMENT=27, SINGLEQUOTEMULTICOMMENT=28;
 	public static String[] channelNames = {
 		"DEFAULT_TOKEN_CHANNEL", "HIDDEN"
 	};
@@ -33,7 +33,7 @@ public class PythonParserLexer extends Lexer {
 			"T__0", "T__1", "T__2", "T__3", "T__4", "T__5", "T__6", "T__7", "T__8", 
 			"T__9", "T__10", "T__11", "T__12", "T__13", "T__14", "T__15", "ARITH_OP", 
 			"ASSIGN_OP", "COND_OP", "NEWLINE", "VAR", "CHAR", "NUM", "STRING", "BOOL", 
-			"WS", "COMMENT", "MULTICOMMENT"
+			"WS", "COMMENT", "SINGLEQUOTEMULTICOMMENT"
 		};
 	}
 	public static final String[] ruleNames = makeRuleNames();
@@ -49,7 +49,7 @@ public class PythonParserLexer extends Lexer {
 		return new String[] {
 			null, null, null, null, null, null, null, null, null, null, null, null, 
 			null, null, null, null, null, "ARITH_OP", "ASSIGN_OP", "COND_OP", "NEWLINE", 
-			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "MULTICOMMENT"
+			"VAR", "CHAR", "NUM", "STRING", "BOOL", "WS", "COMMENT", "SINGLEQUOTEMULTICOMMENT"
 		};
 	}
 	private static final String[] _SYMBOLIC_NAMES = makeSymbolicNames();
@@ -264,13 +264,13 @@ public class PythonParserLexer extends Lexer {
 		"\u0000\u0000\u00dd\u00db\u0001\u0000\u0000\u0000\u00dd\u00de\u0001\u0000"+
 		"\u0000\u0000\u00de\u00e0\u0001\u0000\u0000\u0000\u00df\u00dd\u0001\u0000"+
 		"\u0000\u0000\u00e0\u00e1\u0006\u001a\u0000\u0000\u00e16\u0001\u0000\u0000"+
-		"\u0000\u00e2\u00e3\u0005\"\u0000\u0000\u00e3\u00e4\u0005\"\u0000\u0000"+
-		"\u00e4\u00e5\u0005\"\u0000\u0000\u00e5\u00e9\u0001\u0000\u0000\u0000\u00e6"+
+		"\u0000\u00e2\u00e3\u0005\'\u0000\u0000\u00e3\u00e4\u0005\'\u0000\u0000"+
+		"\u00e4\u00e5\u0005\'\u0000\u0000\u00e5\u00e9\u0001\u0000\u0000\u0000\u00e6"+
 		"\u00e8\t\u0000\u0000\u0000\u00e7\u00e6\u0001\u0000\u0000\u0000\u00e8\u00eb"+
 		"\u0001\u0000\u0000\u0000\u00e9\u00ea\u0001\u0000\u0000\u0000\u00e9\u00e7"+
 		"\u0001\u0000\u0000\u0000\u00ea\u00ec\u0001\u0000\u0000\u0000\u00eb\u00e9"+
-		"\u0001\u0000\u0000\u0000\u00ec\u00ed\u0005\"\u0000\u0000\u00ed\u00ee\u0005"+
-		"\"\u0000\u0000\u00ee\u00ef\u0005\"\u0000\u0000\u00ef\u00f0\u0001\u0000"+
+		"\u0001\u0000\u0000\u0000\u00ec\u00ed\u0005\'\u0000\u0000\u00ed\u00ee\u0005"+
+		"\'\u0000\u0000\u00ee\u00ef\u0005\'\u0000\u0000\u00ef\u00f0\u0001\u0000"+
 		"\u0000\u0000\u00f0\u00f1\u0006\u001b\u0000\u0000\u00f18\u0001\u0000\u0000"+
 		"\u0000\u0014\u0000\u007f\u008b\u008f\u0095\u009a\u009c\u00a2\u00a7\u00ad"+
 		"\u00af\u00b5\u00b7\u00bf\u00c1\u00c5\u00d0\u00d5\u00dd\u00e9\u0001\u0006"+
