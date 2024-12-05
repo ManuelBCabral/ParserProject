@@ -7,7 +7,7 @@ start
 
 // Statement rules //
 statement
-		:	(expression | COMMENT)
+		:	expression
 		|	(ifStatement | whileStatement | forStatement)
 		;
 
@@ -33,7 +33,7 @@ forStatement
 		:	INDENT* 'for' VAR 'in' (
 			VAR 
 			| ('range(' NUMBER ',' NUMBER ')')
-			) ':' (INDENT statement)+
+			) ':' (INDENT* statement)+
 		;
 
 whileStatement
@@ -70,7 +70,7 @@ STRING  : (('"') ( ~["\r\n] )* ('"')) | (('\'') (~['\r\n])* ('\''));
 ARRAY   : '[' (NUMBER | STRING) (', ' (NUMBER | STRING))* ']';
 
 // Comment rules //
-COMMENT : ('#' ~[\r\n]*) | '\'\'\'' VAR*.*? '\'\'\'';
+COMMENT : (('#' ~[\r\n]*) | '\'\'\'' VAR*.*? '\'\'\'') -> skip;
 
 // Whitespace rules //
 INDENT  : '\t'; 
