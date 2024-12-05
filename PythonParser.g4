@@ -49,7 +49,7 @@ forStatement:
 
 loopStructure: array | VAR;
 
-block: (TAB1 | TAB2 | TAB3) statement+;
+block: (TAB1 | TAB2 | TAB3) statement;
 
 // Rules for array literals
 array: '[' (expr (',' expr)*)? ']';
